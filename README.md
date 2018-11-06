@@ -90,10 +90,39 @@ cleared-up sentence ( for Naive Bayes ):
 [['julie', 'strain', 'fan', 'collection', 'photo', 'page', 'worth', 'nice', 'section', 'painting', 'look', 'heavy', 'literary', 'content', 'place', 'find', 'page', 'text', 'everything', 'else', 'line', 'want', 'one', 'book', 'six', 'foot', 'one', 'probably', 'good', 'choice', 'however', 'like', 'julie', 'like', 'like', 'julie', 'go', 'wrong', 'one', 'either']]
 ```
 
-Second step is to map those words to a indexes: we make a dictionary, including every word which appears in text and assign a index for every word.
+Second step is to map those words to a indexes: we make a dictionary, including every word which appears in text and assign a index for every word. We also created 2 dictionaries, one of them, i.e. id2word, map indexes to words, another,i.e. word2id, map words to indexes. We can use them later on building classifiers. The structure and description of result after processing can be shown as following:
 
+CNN:
 
-Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. 
+| file name | type | description |
+|:----:|:----:|:------:|
+|CNN_id2word.txt | dict() | dictionary, use id to find word |
+|CNN_word2id.txt | dict() | dictionary, use word to find id |
+|CNN_sentence_id_list.txt | list() | 3d list, every word in sentence convert to index  |
+|CNN_sentence_list.txt | list() | 3d list, see example "cleared-up sentence for CNN" above|
+
+Naive Bayes:
+
+| file name | type | description |
+|:----:|:----:|:------:|
+|NB_id2word.txt | dict() | dictionary, use id to find word |
+|NB_word2id.txt | dict() | dictionary, use word to find id |
+|NB_sentence_id_list.txt | list() | 2d list, every word in sentence convert to index  |
+|NB_sentence_list.txt | list() | 2d list, see example "cleared-up sentence for Naive Bayes" above|
+
+all the data can be loaded by following python code:
+``` python
+import json
+def ReadListAndDictFromFile(readFileName):
+    with open(readFileName, "r",encoding='UTF-8') as f:
+        readedList =  json.loads(f.read())
+        return readedList
+        
+#for example
+ReadListAndDictFromFile("CNN_sentence_id_list.txt")
+```
+
+Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN, we need a more complex method called "word embedding" to encode. In this project, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding.
 
 
 
