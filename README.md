@@ -69,7 +69,7 @@ In order to use a text to do a classification, the first step is to clear up the
 3. tokenize the sentence to words;
 4. extend the abbreviations (eg. "isn't -> is not");
 5. convert all words to lower-case, remove stop words and punctuation;
-6. write the cleared text to file
+6. write the cleared text to file;
 ```
 
 Besides, according to different classifier(NB or CNN), there is also small difference:
@@ -110,7 +110,7 @@ Naive Bayes:
 |NB_sentence_id_list.txt | list() | 2d list, every word in sentence convert to index  |
 |NB_sentence_list.txt | list() | 2d list, see example "cleared-up sentence for Naive Bayes" above|
 
-all the data can be loaded by following python code:
+All the data can be loaded by following python code:
 ``` python
 import json
 def ReadListAndDictFromFile(readFileName):
