@@ -110,7 +110,7 @@ Naive Bayes:
 |NB_sentence_id_list.txt | list() | 2d list, every word in sentence convert to index  |
 |NB_sentence_list.txt | list() | 2d list, see example "cleared-up sentence for Naive Bayes" above|
 
-All the data can be loaded by following python code:
+All the data can be downloaded by link:( [CNN](https://drive.google.com/file/d/1ZqeeNDQ_-_6eMyT-7huQl_z7fqp6hU0g/view?usp=sharing), [NB](https://drive.google.com/file/d/1JwtWwinm_byUzw34gazKgnlOeYAFnXr-/view?usp=sharing) ), and they can be loaded by following python code:
 ``` python
 import json
 def ReadListAndDictFromFile(readFileName):
