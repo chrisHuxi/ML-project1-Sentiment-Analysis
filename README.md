@@ -124,6 +124,16 @@ ReadListAndDictFromFile("CNN_sentence_id_list.txt")
 
 Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN, we need a more complex method called "word embedding" to encode. In this project, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding. Besides, in order to make model adapt the training set, we also use [gensim](https://radimrehurek.com/gensim/) to train word embedding based on the data we collected.
 
+Here is a example shows how word embedding work: 
+
+``` python
+# calculate similarity of word vectors
+'amazing'
+[('incredible', 0.8330461978912354), ('wonderful', 0.6981839537620544), ('awesome', 0.6934306621551514), ('fantastic', 0.6817658543586731), ('remarkable', 0.6695932149887085), ('phenomenal', 0.6470452547073364), ('astounding', 0.6289204359054565), ('marvelous', 0.6220988035202026), ('astonishing', 0.5953347682952881), ('extraordinary', 0.5950510501861572)]
+
+'disgusting'
+[('sickening', 0.7087589502334595), ('revolting', 0.6704294085502625), ('vile', 0.6409405469894409), ('repulsive', 0.6092551946640015), ('lewd', 0.5895463824272156), ('repugnant', 0.5865837335586548), ('horrid', 0.5639320015907288), ('obscene', 0.5621051788330078), ('vulgar', 0.559421718120575), ('depraved', 0.5587021708488464)]
+```
 
 ### part2. CNN for text classification:
 
@@ -157,5 +167,14 @@ training on balance data set, 150000 examples. The result as following:
 ### part3. Naive Bayes:
 
 ### part4. RNN:
+|Layer| | Parameter | Explanation |
+|:----:|:------:|:------:|
+|Input | | |
+|Embedding| | |
+|LSTM | | |
+|Dense1| 128 | | 
+|Dense2| 16| |
+|softmax| 3 | |
+
 
 ### summary
