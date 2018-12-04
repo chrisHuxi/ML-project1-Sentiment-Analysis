@@ -161,8 +161,16 @@ After adjusting parameter, we got a model as shown below:
 |Dense | 128 | hidden layer nodes = 128 |
 |softmax | 3 | output |
 
-training on balance data set, 150000 examples. The result as following:
+training on balance data set, 15000 examples. The result as following:
+```
+             precision    recall  f1-score   support
 
+        0.0       0.56      0.58      0.57       486
+        1.0       0.41      0.42      0.41       494
+        2.0       0.61      0.58      0.60       520
+
+avg / total       0.53      0.53      0.53      1500
+```
 
 ### part3. Naive Bayes:
 
