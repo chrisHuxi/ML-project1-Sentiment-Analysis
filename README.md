@@ -158,3 +158,4 @@ training on balance data set, 150000 examples. The result as following:
 
 ### part4. RNN:
 
+### summary
