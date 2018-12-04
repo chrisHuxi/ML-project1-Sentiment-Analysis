@@ -39,16 +39,16 @@ review/text: I don't care much for Dr. Seuss but after reading Philip Nel's book
 
 
 ### method:
-We will use [CNN]( https://www.aclweb.org/anthology/D14-1181 ) as main model for classification, which is proved as a powerful model to solve sentiment analysis problem. And we use [Glove](https://nlp.stanford.edu/projects/glove/) and [SSWE](https://www.aclweb.org/anthology/P/P14/P14-1146.xhtml) as word embedding, which is also a important part of NLP problem. In order to compare the result, we will also implement a Naive Bayes model and evaluate it.
+We will use [CNN]( https://www.aclweb.org/anthology/D14-1181 ) and [RNN](https://en.wikipedia.org/wiki/Recurrent_neural_network) as main model for classification, which is proved as a powerful model to solve sentiment analysis problem. And we use [Glove](https://nlp.stanford.edu/projects/glove/) and [SSWE](https://www.aclweb.org/anthology/P/P14/P14-1146.xhtml) as word embedding, which is also a important part of NLP problem. In order to compare the result, we will also implement a traditional machine learning model , [Naive Bayes model](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), and evaluate it. 
 
 ### plan:
 We divided the whole project into 3 part: data process, training and evaluating Naive Bayes model, training and evaluating CNN model.
 
 | Name | Work |
 |:----:|:------:|
-|Xi  | data process |
+|Xi  | data process, CNN model |
 |Martin | Naive Bayes model |
-|Ziyuan | CNN model|
+|Ziyuan | RNN model|
 
 ### part1. data process:
 reference: [How to Clean Text for Machine Learning with Python](https://machinelearningmastery.com/clean-text-machine-learning-python/?spm=5176.100239.blogcont225721.32.cAebmf)
@@ -122,9 +122,39 @@ def ReadListAndDictFromFile(readFileName):
 ReadListAndDictFromFile("CNN_sentence_id_list.txt")
 ```
 
-Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN, we need a more complex method called "word embedding" to encode. In this project, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding.
+Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN, we need a more complex method called "word embedding" to encode. In this project, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding. Besides, in order to make model adapt the training set, we also use [gensim](https://radimrehurek.com/gensim/) to train word embedding based on the data we collected.
 
 
+### part2. CNN for text classification:
 
- 
- 
+[CNN](https://www.aclweb.org/anthology/D14-1181) model is the most powerful neural network nowadays. In this project, we use it as classifier of text sentiment classification task.
+
+From the lecture we have learned how can we use CNN as image classifier. And in order to transfer this idea into text classifier, we firstly map word to a numeric vector, that is so-called word-embedding technique. According to [Kim et al., 2014](https://www.aclweb.org/anthology/D14-1181), we can construct a sentence to a matrix. Then CNN model can be used as usual. Following image shows the architecture of this model.
+
+![](https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/CNN.PNG)
+
+Besides, comparing with the CNN model in computer vision, we consider to use different word embedding as different channel as input.
+After adjusting parameter, we got a model as shown below:
+
+| Layer | Parameter | Explanation |
+|:----:|:------:|:------:|
+|Input  | 64 * 3 | 64 words/sentence, 3 channel |
+|Embedding  | 50 | 50 dimension word embedding |
+|Convolution | input filter size = (2,50,3); output filter size = ( 63, 1, 128) |valid, stride = 1|
+|Pooling| 2 * 1 | stride = 1 |
+|Convolution | input filter size = (4,50,3); output filter size = ( 61, 1, 128) |valid, stride = 1|
+|Pooling| 2 * 1 | stride = 1 |
+|Convolution | input filter size = (8,50,3); output filter size = ( 57, 1, 128) |valid, stride = 1|
+|Pooling| 2 * 1 | stride = 1 |
+|Convolution | input filter size = (16,50,3); output filter size = ( 49, 1, 128) |valid, stride = 1|
+|Pooling| 2 * 1 | stride = 1 |
+|Dense | 128 | hidden layer nodes = 128 |
+|softmax | 3 | output |
+
+training on balance data set, 150000 examples. The result as following:
+
+
+### part3. Naive Bayes:
+
+### part4. RNN:
+
