@@ -181,14 +181,46 @@ Because of the independence assumption, naive Bayes classifiers are highly scala
 
 ### part4. RNN:
 
+Input is BATCH_SIZE(64) padded to MAX_SEQUENCE_LENGTH(100) sentences, each contain exactly MAX_SEQUENCE_LENGTH(100) id of words between 0 and VOCAB_SIZE(10000)
+
+Embedding Layer is learned during training.
+
+RNN is a sequence of neural network blocks that are linked to each others like a chain. Each one is passing a message to a successor.
+
+![](http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/RNN-unrolled.png)
+
+The structure of an LSTM network remains the same as an RNN, whereas the repeating module does more operations. Enhancing the repeating module enables the LSTM network to remember long-term dependencies.
+
+Bidirectional RNN can learn representations from future time steps to better understand the context and eliminate ambiguity.
+
+![](https://cdn-images-1.medium.com/max/1600/1*6QnPUSv_t9BY9Fv8_aLb-Q.png)
+
+Dropout is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data. It is a very efficient way of performing model averaging with neural networks.
+
+![](https://saurabhmathur96.github.io/deep-learning-notes/images/dropout-neural-net.png)
+
+The model is shown below:
+
 |Layer| Parameter | Explanation |
 |:----:|:------:|:------:|
-|Input | TODO | TODO |
-|Embedding| TODO | TODO |
-|LSTM | TODO | TODO |
-|Dense1| 128 | TODO | 
-|Dense2| 16| TODO |
-|softmax| 3 | TODO |
+|Embedding| 100 | Embbeding length |
+|LSTM | 200 | Bidirectional, 100 hidden units in lstm |
+|Dropout | 0.5 | Dorpout rate |
+|Dense1| 128 | Output size | 
+|Dense2| 16| Output size |
+|softmax| 3 | Classes |
 
+Training on 88000 balanced data set, validated on 10000 balanced dataset, tested on 2000 balanced dataset
+
+```
+             precision    recall  f1-score   
+
+        0.0       0.38      0.47      0.42      
+        1.0       0.27      0.36      0.37     
+        2.0       0.58      0.68      0.63     
+
+```
+
+### summary
 
 ### summary
