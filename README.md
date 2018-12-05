@@ -175,7 +175,8 @@ avg / total       0.62      0.62      0.62     28357
 ### part3. Naive Bayes:
 
 ### part4. RNN:
-|Layer| | Parameter | Explanation |
+
+|Layer| Parameter | Explanation |
 |:----:|:------:|:------:|
 |Input | TODO | TODO |
 |Embedding| TODO | TODO |
