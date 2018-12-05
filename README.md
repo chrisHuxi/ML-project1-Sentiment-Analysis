@@ -183,7 +183,7 @@ Bayes’ theorem is stated mathematically as the following relationship:
 
 If we add the assumption that each feature is conditionally independent of every other feature can change this formula to:
 
-<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB2.png"/></div>
+<div align=center><img width="370"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB2.png"/></div>
 
 Since the denominator is constant and we can remove it and just look for maximum score in the classes
 
