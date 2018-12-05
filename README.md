@@ -208,7 +208,7 @@ The model is shown below:
 Training on 88000 balanced data set, validated on 10000 balanced dataset, tested on 2000 balanced dataset
 
 ```
-             precision    recall  f1-score   s
+             precision    recall  f1-score 
 
         0.0       0.38      0.47      0.42      
         1.0       0.27      0.36      0.37     
