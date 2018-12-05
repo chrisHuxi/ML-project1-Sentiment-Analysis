@@ -173,7 +173,7 @@ training and test on balance data set, 283563 examples. The result shows as foll
 avg / total       0.62      0.62      0.62     28357
 ```
 
-### part3. Naive Bayes:
+### part3. Naive Bayes for text classification:
 Multinomial Naive Bayes classification algorithm is considered as a baseline for sentiment analysis tasks. The basic idea is to find the probabilities of classes assigned to text by using the joint probabilities of words and classes. Although this algorithm is very simple and it assumes that features are independent which is very naive in case of text classification, in practice naive Bayes performs surprisingly well and is competitive with more sophisticated techniques.
 
 Because of the independence assumption, naive Bayes classifiers are highly scalable and can quickly learn to use high dimensional features with limited training data. This is useful for many real world datasets where the amount of data is small in comparison with the number of features for each individual piece of data, such as speech, text, and image data.
@@ -239,7 +239,7 @@ final result is shown below:
 avg / total       0.66      0.66      0.64    
 ```
 
-### part4. RNN:
+### part4. RNN for text classification:
 
 Input is BATCH_SIZE(64) padded to MAX_SEQUENCE_LENGTH(100) sentences, each contain exactly MAX_SEQUENCE_LENGTH(100) id of words between 0 and VOCAB_SIZE(10000)
 
