@@ -179,7 +179,7 @@ Because of the independence assumption, naive Bayes classifiers are highly scala
 
 Bayes’ theorem is stated mathematically as the following relationship:
 
-<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB1.png"/></div>
+<div align=center><img width="350"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB1.png"/></div>
 
 If we add the assumption that each feature is conditionally independent of every other feature can change this formula to:
 
@@ -191,7 +191,7 @@ Since the denominator is constant and we can remove it and just look for maximum
 
 To avoid an errors caused by rounding, logarithm of probabilities is usually used:
 
-<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB4.png"/></div>
+<div align=center><img width="350"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB4.png"/></div>
 
 
 
