@@ -206,18 +206,18 @@ The dataset that we have collected is strongly unbalanced, this caused a lot of 
 avg / total       0.50      0.33      0.29    
 ```
 Based on the [paper](http://people.csail.mit.edu/jrennie/papers/icml03-nb.pdf) which recommends following ideas to improve the model:
-#### 1.Use bigger dataset
+#### 1. Use bigger dataset
 - By using a dataset with 500 000 samples we were finally able to successfully detect some 20% neutral reviews. 
-#### 2.Use combination of Multinomial NB and Complement NB 
+#### 2. Use combination of Multinomial NB and Complement NB 
 - The paper suggests to use a combinations of Multinomial NB and Complement NB. The resulting classifier is called one-vs-all-but-one MNB. This classifier is not implemented in the scikit learn library so we modified the scikit implementation of the Multinomial NB to try this algorithm. This helped to get f1-score for negative to 59%, for neutral to 25% and positive to 91%
  
-#### 3.Use TF IDF instead of word count
+#### 3. Use TF IDF instead of word count
 - Paper also suggests to use term frequency instead of counts of the words. This way it will downscale weights for  words that occur in many documents in the corpus and are therefore less informative than those that occur only in a smaller portion of the corpus. 
  
 - This assumption however does not work for our dataset and makes our predictions much worse (f1-score for negative to 7%, for neutral to 0% and positive to 89%). 
-#### 4.Consider negation of words
+#### 4. Consider negation of words
 - We also tried to transform words like “not” that can negate the following words “not good” -> “not_good”. This way every time “not” occured in the text it was connected to nearest following noun, adjective or verb. This approach also did not make the results better.
-#### 5.Undersample dominating classes in training dataset
+#### 5. Undersample dominating classes in training dataset
 - In order to boost the f1-score of the class “neutral reviews” we have also decided to make training data balanced (same number of all classes in training data). This approach discutable because we should not modify training data but in our case it helped to get overall better results.
 
 The best result of the NB classifier that we achieved was by using the one-vs-all-but-one MNB on the whole dataset (1 000 001 samples) with the parameters set to:
