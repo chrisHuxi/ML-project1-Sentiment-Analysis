@@ -165,11 +165,11 @@ training on balance data set, 15000 examples. The result as following:
 ```
              precision    recall  f1-score   support
 
-        0.0       0.56      0.58      0.57       486
-        1.0       0.41      0.42      0.41       494
-        2.0       0.61      0.58      0.60       520
+        0.0       0.69      0.66      0.68      9973
+        1.0       0.48      0.52      0.50      8319
+        2.0       0.67      0.66      0.67     10065
 
-avg / total       0.53      0.53      0.53      1500
+avg / total       0.62      0.62      0.62     28357
 ```
 
 ### part3. Naive Bayes:
@@ -177,12 +177,12 @@ avg / total       0.53      0.53      0.53      1500
 ### part4. RNN:
 |Layer| | Parameter | Explanation |
 |:----:|:------:|:------:|
-|Input | | |
-|Embedding| | |
-|LSTM | | |
-|Dense1| 128 | | 
-|Dense2| 16| |
-|softmax| 3 | |
+|Input | TODO | TODO |
+|Embedding| TODO | TODO |
+|LSTM | TODO | TODO |
+|Dense1| 128 | TODO | 
+|Dense2| 16| TODO |
+|softmax| 3 | TODO |
 
 
 ### summary
