@@ -165,9 +165,9 @@ training and test on balance data set, 283563 examples. The result shows as foll
 ```
              precision    recall  f1-score   support
 
-        0.0       0.69      0.66      0.68      9973
-        1.0       0.48      0.52      0.50      8319
-        2.0       0.67      0.66      0.67     10065
+   Negative       0.69      0.66      0.68      9973
+   Neutral        0.48      0.52      0.50      8319
+   Positive       0.67      0.66      0.67     10065
 
 avg / total       0.62      0.62      0.62     28357
 ```
@@ -193,7 +193,50 @@ To avoid an errors caused by rounding, logarithm of probabilities is usually use
 
 <div align=center><img width="350"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB4.png"/></div>
 
+for Sentiment analysis of book reviews on Amazon using Naive Bayes:
+The dataset that we have collected is strongly unbalanced, this caused a lot of problems to get at least decent accuracy for neutral reviews which were just 8.3% of dataset. When we tried to use Multinomial Naive Bayes on the dataset of size 100 000 samples we got the following results: 
 
+```
+             precision    recall  f1-score  
+
+   Negative       0.71      0.00      0.00     
+   Neutral        0.00      0.00      0.00      
+   Positive       0.78      1.00      0.88     
+
+avg / total       0.50      0.33      0.29    
+```
+Based on the [paper](http://people.csail.mit.edu/jrennie/papers/icml03-nb.pdf) which recommends following ideas to improve the model:
+#### 1.Use bigger dataset
+- By using a dataset with 500 000 samples we were finally able to successfully detect some 20% neutral reviews. 
+#### 2.Use combination of Multinomial NB and Complement NB 
+- The paper suggests to use a combinations of Multinomial NB and Complement NB. The resulting classifier is called one-vs-all-but-one MNB. This classifier is not implemented in the scikit learn library so we modified the scikit implementation of the Multinomial NB to try this algorithm. This helped to get f1-score for negative to 59%, for neutral to 25% and positive to 91%
+ 
+#### 3.Use TF IDF instead of word count
+- Paper also suggests to use term frequency instead of counts of the words. This way it will downscale weights for  words that occur in many documents in the corpus and are therefore less informative than those that occur only in a smaller portion of the corpus. 
+ 
+- This assumption however does not work for our dataset and makes our predictions much worse (f1-score for negative to 7%, for neutral to 0% and positive to 89%). 
+#### 4.Consider negation of words
+- We also tried to transform words like “not” that can negate the following words “not good” -> “not_good”. This way every time “not” occured in the text it was connected to nearest following noun, adjective or verb. This approach also did not make the results better.
+#### 5.Undersample dominating classes in training dataset
+- In order to boost the f1-score of the class “neutral reviews” we have also decided to make training data balanced (same number of all classes in training data). This approach discutable because we should not modify training data but in our case it helped to get overall better results.
+
+The best result of the NB classifier that we achieved was by using the one-vs-all-but-one MNB on the whole dataset (1 000 001 samples) with the parameters set to:
+```
+alpha=0.2, 
+min_df=10, 
+ngram=(1,2) 
+Balanced training dataset with the same number of samples for each clases
+```
+final result is shown below:
+```
+             precision    recall  f1-score  
+
+   Negative       0.66      0.75      0.70     
+   Neutral        0.62      0.51      0.56      
+   Positive       0.71      0.74      0.73     
+
+avg / total       0.66      0.66      0.64    
+```
 
 ### part4. RNN:
 
@@ -227,16 +270,15 @@ The model is shown below:
 |softmax| 3 | Classes |
 
 Training on 88000 balanced data set, validated on 10000 balanced dataset, tested on 2000 balanced dataset
-
 ```
-             precision    recall  f1-score   
+             precision    recall  f1-score  
 
-        0.0       0.38      0.47      0.42      
-        1.0       0.27      0.36      0.37     
-        2.0       0.58      0.68      0.63     
+   Negative       0.38      0.47      0.42     
+   Neutral        0.27      0.36      0.37      
+   Positive       0.58      0.68      0.63     
 
+avg / total       0.41      0.56      0.47    
 ```
 
-### summary
 
-### summary
+
