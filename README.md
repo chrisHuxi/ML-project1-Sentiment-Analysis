@@ -178,13 +178,21 @@ Multinomial Naive Bayes classification algorithm is considered as a baseline for
 Because of the independence assumption, naive Bayes classifiers are highly scalable and can quickly learn to use high dimensional features with limited training data. This is useful for many real world datasets where the amount of data is small in comparison with the number of features for each individual piece of data, such as speech, text, and image data.
 
 Bayes’ theorem is stated mathematically as the following relationship:
-![](https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB1.png)
+
+<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB1.png"/></div>
+
 If we add the assumption that each feature is conditionally independent of every other feature can change this formula to:
-![](https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB2.png)
+
+<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB2.png"/></div>
+
 Since the denominator is constant and we can remove it and just look for maximum score in the classes
-![](https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB3.png)
+
+<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB3.png"/></div>
+
 To avoid an errors caused by rounding, logarithm of probabilities is usually used:
-![](https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB4.png)
+
+<div align=center><img width="400"  src="https://github.com/chrisHuxi/ML-project1-Sentiment-Analysis/blob/master/readme_image/NB4.png"/></div>
+
 
 
 ### part4. RNN:
