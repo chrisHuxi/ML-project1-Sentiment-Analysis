@@ -1,11 +1,11 @@
 # Sentiment Analysis of Amazon Reviews
 
-### overview:
+## Overview:
 A review text usually contains emotional information, which is very useful for evaluating the quality of a product. In this Project, we will train a model to classify a sentence to 3 sentiment: positive, negative and neutral. 
 
 
 
-### dataset:
+## Dataset:
 We will use the Amazon Customer Reviews Dataset, which is provided from Amazon. This dataset consists of many classes, and we will use [book review data]( http://snap.stanford.edu/data/amazon/ ) from them, which is about 4.4GB in size.This is a [link](https://s3.amazonaws.com/amazon-reviews-pds/readme.html) including all the information of those data. There are many attributes in this data set, however we will use mainly the review text as training data.
 
 ```
@@ -38,10 +38,10 @@ review/text: I don't care much for Dr. Seuss but after reading Philip Nel's book
 
 
 
-### method:
+## Method:
 We will use [CNN]( https://www.aclweb.org/anthology/D14-1181 ) and [RNN](https://en.wikipedia.org/wiki/Recurrent_neural_network) as main model for classification, which is proved as a powerful model to solve sentiment analysis problem. And we use [Glove](https://nlp.stanford.edu/projects/glove/) and [SSWE](https://www.aclweb.org/anthology/P/P14/P14-1146.xhtml) as word embedding, which is also a important part of NLP problem. In order to compare the result, we will also implement a traditional machine learning model , [Naive Bayes model](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), and evaluate it. 
 
-### plan:
+## Plan:
 We divided the whole project into 4 part: data process, training and evaluating Naive Bayes model, training and evaluating CNN model, training and evaluating RNN model.
 
 | Name | Work |
@@ -50,6 +50,7 @@ We divided the whole project into 4 part: data process, training and evaluating 
 |Martin | Naive Bayes model |
 |Ziyuan | RNN model|
 
+## Details
 ### part1. data process:
 reference: [How to Clean Text for Machine Learning with Python](https://machinelearningmastery.com/clean-text-machine-learning-python/?spm=5176.100239.blogcont225721.32.cAebmf)
 
@@ -280,5 +281,9 @@ Training on 88000 balanced data set, validated on 10000 balanced dataset, tested
 avg / total       0.41      0.56      0.47    
 ```
 
+## Summary:
 
+- We use Amazon book review as dataset, including 1,000,000 reviews
+- We use CNN, Naive Bayes, RNN as classifier to classify the sentiment of a text sentence.
+- According to F1-score, Naive Bayes model is better then CNN and RNN model, in our case.
 
