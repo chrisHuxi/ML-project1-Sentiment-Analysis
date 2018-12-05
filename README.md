@@ -42,7 +42,7 @@ review/text: I don't care much for Dr. Seuss but after reading Philip Nel's book
 We will use [CNN]( https://www.aclweb.org/anthology/D14-1181 ) and [RNN](https://en.wikipedia.org/wiki/Recurrent_neural_network) as main model for classification, which is proved as a powerful model to solve sentiment analysis problem. And we use [Glove](https://nlp.stanford.edu/projects/glove/) and [SSWE](https://www.aclweb.org/anthology/P/P14/P14-1146.xhtml) as word embedding, which is also a important part of NLP problem. In order to compare the result, we will also implement a traditional machine learning model , [Naive Bayes model](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), and evaluate it. 
 
 ### plan:
-We divided the whole project into 3 part: data process, training and evaluating Naive Bayes model, training and evaluating CNN model.
+We divided the whole project into 4 part: data process, training and evaluating Naive Bayes model, training and evaluating CNN model, training and evaluating RNN model.
 
 | Name | Work |
 |:----:|:------:|
@@ -122,7 +122,7 @@ def ReadListAndDictFromFile(readFileName):
 ReadListAndDictFromFile("CNN_sentence_id_list.txt")
 ```
 
-Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN, we need a more complex method called "word embedding" to encode. In this project, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding. Besides, in order to make model adapt the training set, we also use [gensim](https://radimrehurek.com/gensim/) to train word embedding based on the data we collected.
+Then we will encode those word list to numerical type. based on different classification algorithm, the final text will look a little different. For Naive Bayes, using index as encoder is enough. For CNN and RNN, we need a more complex method called "word embedding" to encode. In this project, for CNN model, we will use [Glove](https://pan.baidu.com/s/1qX9uVTE) and [SSWE](https://pan.baidu.com/s/1jIoOFRK) as word embedding. Besides, in order to make model adapt the training set, we also use [gensim](https://radimrehurek.com/gensim/) to train word embedding based on the data we collected. For RNN model, a random initialized word embedding model will be used.
 
 Here is a example shows how word embedding work: 
 
