@@ -161,7 +161,7 @@ After adjusting parameter, we got a model as shown below:
 |Dense | 128 | hidden layer nodes = 128 |
 |softmax | 3 | output |
 
-training on balance data set, 15000 examples. The result as following:
+training and test on balance data set, 283563 examples. The result shows as following:
 ```
              precision    recall  f1-score   support
 
